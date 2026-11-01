@@ -1,0 +1,362 @@
+:root {
+    color-scheme: light;
+    --color-azul: #173B63;
+    --color-azul-claro: #EAF1F8;
+    --color-verde: #247A78;
+    --color-texto: #243447;
+    --color-secundario: #596B7D;
+    --color-borde: #D9E2EC;
+    --color-fondo: #EEF3F8;
+    --color-blanco: #FFFFFF;
+    --sombra-tarjeta: 0 8px 24px rgba(23, 59, 99, 0.08);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    margin: 0;
+    padding: 2rem 1.25rem;
+    background: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    font-size: 1rem;
+    line-height: 1.65;
+}
+
+a {
+    color: var(--color-verde);
+    text-underline-offset: 0.2em;
+}
+
+a:hover {
+    color: var(--color-azul);
+}
+
+a:focus-visible {
+    outline: 3px solid #F4C95D;
+    outline-offset: 3px;
+    border-radius: 2px;
+}
+
+.profile-header,
+main,
+footer {
+    width: min(100%, 68rem);
+    margin-inline: auto;
+}
+
+.profile-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 11rem;
+    align-items: center;
+    gap: 0.35rem 2rem;
+    padding: clamp(1.5rem, 4vw, 3rem);
+    border-radius: 1.25rem;
+    background: linear-gradient(125deg, #173B63, #24577B);
+    box-shadow: 0 14px 32px rgba(23, 59, 99, 0.2);
+    color: var(--color-blanco);
+}
+
+.profile-header h1 {
+    margin: 0;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+}
+
+.profile-header .subtitle {
+    margin: 0.5rem 0 0.8rem;
+    color: #E2EDF7;
+    font-size: clamp(1rem, 2vw, 1.2rem);
+}
+
+.profile-header > img {
+    grid-column: 2;
+    grid-row: 1 / 4;
+    width: 10rem;
+    height: 10rem;
+    justify-self: center;
+    border: 4px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50%;
+    background: var(--color-blanco);
+    object-fit: cover;
+    object-position: center;
+}
+
+.contacto-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1.25rem;
+    align-items: center;
+}
+
+.contacto-info p {
+    margin: 0.15rem 0;
+}
+
+.contacto-info a {
+    color: var(--color-blanco);
+}
+
+main {
+    display: grid;
+    grid-template-columns: minmax(0, 1.65fr) minmax(17rem, 0.9fr);
+    grid-template-areas:
+        "perfil perfil"
+        "experiencia educacion"
+        "experiencia habilidades"
+        "experiencia enlaces";
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+main > section {
+    min-width: 0;
+    padding: clamp(1.2rem, 2.5vw, 1.8rem);
+    border: 1px solid var(--color-borde);
+    border-radius: 1rem;
+    background: var(--color-blanco);
+    box-shadow: var(--sombra-tarjeta);
+}
+
+.perfil-section { grid-area: perfil; }
+.experience-section { grid-area: experiencia; }
+.education-section { grid-area: educacion; }
+.skills-section { grid-area: habilidades; }
+.links-section { grid-area: enlaces; }
+
+main h2 {
+    margin: 0 0 0.9rem;
+    padding-bottom: 0.55rem;
+    border-bottom: 2px solid var(--color-azul-claro);
+    color: var(--color-azul);
+    font-size: 1.3rem;
+    line-height: 1.3;
+}
+
+main h3 {
+    color: var(--color-azul);
+    font-size: 1.05rem;
+    line-height: 1.4;
+}
+
+.perfil-section p,
+.education-section > p {
+    margin: 0;
+}
+
+.job-item {
+    position: relative;
+    margin-top: 1.35rem;
+    padding: 0.1rem 0 1.25rem 1.15rem;
+    border-left: 2px solid var(--color-borde);
+}
+
+.job-item:last-child {
+    padding-bottom: 0;
+}
+
+.job-item::before {
+    position: absolute;
+    top: 0.35rem;
+    left: -0.42rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    border: 2px solid var(--color-blanco);
+    border-radius: 50%;
+    background: var(--color-verde);
+    box-shadow: 0 0 0 1px var(--color-verde);
+    content: "";
+}
+
+.job-item h3 {
+    margin: 0 0 0.4rem;
+}
+
+.job-date {
+    display: inline-block;
+    margin-bottom: 0.4rem;
+    padding: 0.12rem 0.55rem;
+    border-radius: 999px;
+    background: var(--color-azul-claro);
+    color: var(--color-azul);
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+.job-item ul,
+.skills-section ol,
+.skills-section ul,
+.links-section ul {
+    padding-left: 1.25rem;
+}
+
+.job-item ul {
+    margin: 0.35rem 0 0;
+}
+
+.job-item li,
+.skills-section li,
+.links-section li {
+    margin-block: 0.35rem;
+}
+
+.education-section > p {
+    margin-bottom: 0.8rem;
+    color: var(--color-secundario);
+}
+
+.education-section table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+
+.education-section th,
+.education-section td {
+    padding: 0.65rem 0.55rem;
+    border: 1px solid var(--color-borde);
+    text-align: left;
+    vertical-align: top;
+}
+
+.education-section th {
+    background: var(--color-azul-claro);
+    color: var(--color-azul);
+}
+
+.education-section tbody tr:nth-child(even) {
+    background: #F8FAFC;
+}
+
+.links-section ul {
+    margin-bottom: 0;
+}
+
+footer {
+    padding: 1.25rem 0 0.5rem;
+    color: var(--color-secundario);
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+@media (max-width: 760px) {
+    body {
+        padding: 1rem;
+    }
+
+    .profile-header {
+        grid-template-columns: minmax(0, 1fr) 7rem;
+        gap: 0.4rem 1rem;
+        border-radius: 1rem;
+    }
+
+    .profile-header > img {
+        width: 6.5rem;
+        height: 6.5rem;
+    }
+
+    .contacto-info {
+        grid-column: 1 / -1;
+        display: grid;
+        gap: 0.3rem;
+    }
+
+    main {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+            "perfil"
+            "experiencia"
+            "educacion"
+            "habilidades"
+            "enlaces";
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0.65rem;
+    }
+
+    .profile-header {
+        grid-template-columns: minmax(0, 1fr) 5rem;
+        padding: 1.2rem;
+    }
+
+    .profile-header > img {
+        width: 4.7rem;
+        height: 4.7rem;
+        border-width: 3px;
+    }
+
+    .profile-header h1 {
+        font-size: 1.55rem;
+    }
+
+    .profile-header .subtitle {
+        font-size: 0.95rem;
+    }
+
+    main > section {
+        padding: 1rem;
+    }
+
+    .education-section {
+        overflow-x: auto;
+    }
+
+    .education-section table {
+        min-width: 34rem;
+    }
+}
+
+@media print {
+    @page {
+        margin: 1.4cm;
+    }
+
+    body {
+        padding: 0;
+        background: #FFFFFF;
+        color: #111827;
+        font-size: 10pt;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+
+    .profile-header,
+    main,
+    footer {
+        width: 100%;
+    }
+
+    .profile-header,
+    main > section {
+        box-shadow: none;
+    }
+
+    main {
+        gap: 0.6rem;
+        margin-top: 0.6rem;
+    }
+
+    main > section {
+        padding: 0.8rem;
+    }
+
+    .job-item,
+    .education-section tr,
+    .skills-section,
+    .links-section {
+        break-inside: avoid;
+    }
+
+    a {
+        color: inherit;
+    }
+}
